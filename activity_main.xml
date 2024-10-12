@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="end"
+        android:background="#E0E0E0"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="48sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <!-- LinearLayout cho bàn phím số và chức năng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <!-- Các hàng nút bấm như đã mô tả ở ví dụ trước -->
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="CE"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp"
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnClear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="C"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="BS"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnDivide"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="/"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <!-- Hàng 2: 7, 8, 9, x -->
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="7"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="8"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="9"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnMultiply"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="x"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <!-- Hàng 3: 4, 5, 6, - -->
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="4"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="5"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="6"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnSubtract"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="-"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <!-- Hàng 4: 1, 2, 3, + -->
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="1"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="2"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="3"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="+"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <!-- Hàng 5: +/-, 0, ., = -->
+        <LinearLayout
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="+/-"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btn0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="0"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="."
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button"
+                android:id="@+id/btnEqual"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:text="="
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
