@@ -1,55 +1,39 @@
-// MainActivity.kt
-package com.example.th_android
+package com.example.btvn_android_29_10
+
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var emailAdapter: EmailAdapter
+    private lateinit var emailList: List<Email>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sourceCurrencySpinner = findViewById<Spinner>(R.id.spinnerSourceCurrency)
-        val targetCurrencySpinner = findViewById<Spinner>(R.id.spinnerTargetCurrency)
-        val sourceAmountEditText = findViewById<EditText>(R.id.editTextSourceAmount)
-        val targetAmountEditText = findViewById<EditText>(R.id.editTextTargetAmount)
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val currencies = arrayOf("USD", "VND", "EUR", "JPY")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, currencies)
-        sourceCurrencySpinner.adapter = adapter
-        targetCurrencySpinner.adapter = adapter
+        // Tạo dữ liệu mẫu cho danh sách email
+        emailList = listOf(
+            Email("Edurila.com", "$19 Only - Bestselling courses", "Are you looking to learn web designing?", "12:34 PM"),
+            Email("Chris Abad", "Campaign Monitor", "Help us make Campaign Monitor better!", "11:22 AM"),
+            Email("Tuto.com", "Formation gratuite", "Photoshop, SEO, Blender, CSS...", "10:45 AM"),
+            Email("Support", "Suivi de vos services", "Nous avons un suivi pour vous", "9:15 AM"),
+            Email("Matt from Ionic", "The New Ionic Creator", "Announcing the all-new Creator...", "8:30 AM"),
+            Email("Google Alerts", "New Alert for 'android development'", "Top news on Android development", "7:20 AM"),
+            Email("Udemy", "Discounted Courses", "50% off on all courses", "6:15 AM"),
+            Email("Medium", "Latest on tech", "How AI is changing the world", "5:45 AM"),
+            Email("LinkedIn", "Connections Update", "You have 5 new connection requests", "5:00 AM"),
+            Email("GitHub", "New Pull Request", "There is a new PR in your repo", "4:20 AM")
+        )
 
-        sourceAmountEditText.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                convertCurrency(sourceAmountEditText, targetAmountEditText, sourceCurrencySpinner, targetCurrencySpinner)
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-        })
-    }
-
-    private fun convertCurrency(source: EditText, target: EditText, sourceSpinner: Spinner, targetSpinner: Spinner) {
-        val amount = source.text.toString().toDoubleOrNull() ?: return
-        val sourceCurrency = sourceSpinner.selectedItem.toString()
-        val targetCurrency = targetSpinner.selectedItem.toString()
-
-        val rate = getConversionRate(sourceCurrency, targetCurrency)
-        val convertedAmount = amount * rate
-        target.setText(convertedAmount.toString())
-    }
-
-    private fun getConversionRate(source: String, target: String): Double {
-        return when (source to target) {
-            "USD" to "VND" -> 23000.0
-            "VND" to "USD" -> 1 / 23000.0
-            "EUR" to "USD" -> 1.1
-            // Thêm các tỷ giá khác tại đây
-            else -> 1.0
-        }
+        // Thiết lập Adapter cho RecyclerView
+        emailAdapter = EmailAdapter(emailList)
+        recyclerView.adapter = emailAdapter
     }
 }
