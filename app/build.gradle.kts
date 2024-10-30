@@ -4,11 +4,19 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.th_android"
     compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.th_android"
+=======
+    namespace = "com.example.bai_tren_lop_bai_2"
+    compileSdk = 34
+
+    defaultConfig {
+        applicationId = "com.example.bai_tren_lop_bai_2"
+>>>>>>> 61661a3 (bai_tren_lop_bai_2)
         minSdk = 30
         targetSdk = 34
         versionCode = 1
@@ -33,6 +41,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+<<<<<<< HEAD
+=======
+    buildFeatures {
+        viewBinding = true
+    }
+>>>>>>> 61661a3 (bai_tren_lop_bai_2)
 }
 
 dependencies {
@@ -40,9 +54,20 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+<<<<<<< HEAD
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+=======
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.recyclerview)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+}
+>>>>>>> 61661a3 (bai_tren_lop_bai_2)

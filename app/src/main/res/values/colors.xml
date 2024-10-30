@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+<<<<<<< HEAD
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+=======
+    <color name="primaryColor">#6200EA</color>
+    <color name="primaryLightColor">#BB86FC</color>
+    <color name="backgroundColor">#F5F5F5</color>
+    <color name="textPrimary">#333333</color>
+    <color name="textSecondary">#888888</color>
+>>>>>>> 61661a3 (bai_tren_lop_bai_2)
 </resources>
